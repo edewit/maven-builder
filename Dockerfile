@@ -2,8 +2,8 @@ FROM centos:7
 
 RUN yum update -y && \
   yum install -y centos-release-scl && \
-  yum install -y docker rh-git29 unzip java-1.8.0-openjdk-devel java-1.8.0-openjdk-devel.i686 which && \
-  scl enable rh-git29 bash && \
+  yum install -y docker sclo-git212-git unzip java-1.8.0-openjdk-devel java-1.8.0-openjdk-devel.i686 which && \
+  source scl_source enable sclo-git212 && \
   yum clean all
 
 RUN curl --retry 999 --retry-max-time 0  -sSL https://bintray.com/artifact/download/fabric8io/helm-ci/helm-v0.1.0%2B825f5ef-linux-amd64.zip > helm.zip && \
